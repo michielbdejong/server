@@ -211,43 +211,47 @@ class Manager implements IManager {
 	 * @suppress PhanUndeclaredClassMethod
 	 */
 	protected function generalCreateChecks(IShare $share) {
-		if ($share->getShareType() === IShare::TYPE_USER) {
-			// We expect a valid user as sharedWith for user shares
-			if (!$this->userManager->userExists($share->getSharedWith())) {
-				throw new \InvalidArgumentException('SharedWith is not a valid user');
-			}
-		} elseif ($share->getShareType() === IShare::TYPE_GROUP) {
-			// We expect a valid group as sharedWith for group shares
-			if (!$this->groupManager->groupExists($share->getSharedWith())) {
-				throw new \InvalidArgumentException('SharedWith is not a valid group');
-			}
-		} elseif ($share->getShareType() === IShare::TYPE_LINK) {
-			// No check for TYPE_EMAIL here as we have a recipient for them
-			if ($share->getSharedWith() !== null) {
-				throw new \InvalidArgumentException('SharedWith should be empty');
-			}
-		} elseif ($share->getShareType() === IShare::TYPE_EMAIL) {
-			if ($share->getSharedWith() === null) {
-				throw new \InvalidArgumentException('SharedWith should not be empty');
-			}
-		} elseif ($share->getShareType() === IShare::TYPE_REMOTE) {
-			if ($share->getSharedWith() === null) {
-				throw new \InvalidArgumentException('SharedWith should not be empty');
-			}
-		} elseif ($share->getShareType() === IShare::TYPE_REMOTE_GROUP) {
-			if ($share->getSharedWith() === null) {
-				throw new \InvalidArgumentException('SharedWith should not be empty');
-			}
-		} elseif ($share->getShareType() === IShare::TYPE_CIRCLE) {
-			$circle = \OCA\Circles\Api\v1\Circles::detailsCircle($share->getSharedWith());
-			if ($circle === null) {
-				throw new \InvalidArgumentException('SharedWith is not a valid circle');
-			}
-		} elseif ($share->getShareType() === IShare::TYPE_ROOM) {
-		} elseif ($share->getShareType() === IShare::TYPE_DECK) {
-		} else {
-			// We cannot handle other types yet
-			throw new \InvalidArgumentException('unknown share type');
+		$shareType = $share->getShareType();
+		if (!$this->factory->getProviderForType($shareType)) {
+			// We can't handle other types yet
+			throw new \InvalidArgumentException('unknown share type, no provider found');
+		}
+
+		// verify sharedWith for this share type;
+		switch ($shareType) {
+			case IShare::TYPE_USER:
+				// We expect a valid user as sharedWith for user shares
+				if (!$this->userManager->userExists($share->getSharedWith())) {
+					throw new \InvalidArgumentException('SharedWith is not a valid user');
+				}
+			break;
+			case IShare::TYPE_GROUP:
+				// We expect a valid group as sharedWith for group shares
+				if (!$this->groupManager->groupExists($share->getSharedWith())) {
+					throw new \InvalidArgumentException('SharedWith is not a valid group');
+				}
+			break;
+			case IShare::TYPE_LINK:
+				if ($share->getSharedWith() !== null) {
+					throw new \InvalidArgumentException('SharedWith should be empty');
+				}
+			break;
+			case IShare::TYPE_REMOTE:
+			case IShare::TYPE_REMOTE_GROUP:
+			case IShare::TYPE_EMAIL:
+				if ($share->getSharedWith() === null) {
+					throw new \InvalidArgumentException('SharedWith should not be empty');
+				}
+			break;
+			case IShare::TYPE_CIRCLE:
+				$circle = \OCA\Circles\Api\v1\Circles::detailsCircle($share->getSharedWith());
+				if ($circle === null) {
+					throw new \InvalidArgumentException('SharedWith is not a valid circle');
+				}
+			break;
+			default:
+				// no checks by default;
+			break;
 		}
 
 		// Verify the initiator of the share is set

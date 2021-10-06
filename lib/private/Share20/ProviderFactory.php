@@ -308,24 +308,48 @@ class ProviderFactory implements IProviderFactory {
 	 */
 	public function getProviderForType($shareType) {
 		$provider = null;
+		
+		switch ($shareType) {
+			case IShare::TYPE_USER:
+			case IShare::TYPE_GROUP:
+			case IShare::TYPE_LINK:
+				$provider = $this->defaultShareProvider();
+			break;
+			case IShare::TYPE_REMOTE:
+			case IShare::TYPE_REMOTE_GROUP:
+				$provider = $this->federatedShareProvider();
+			break;
+			case IShare::TYPE_EMAIL:
+				$provider = $this->getShareByMailProvider();
+			break;
+			case IShare::TYPE_CIRCLE:
+				$provider = $this->getShareByCircleProvider();
+			break;
+			case IShare::TYPE_ROOM:
+				$provider = $this->getRoomShareProvider();
+			break;
+			case IShare::TYPE_DECK:
+				$provider = $this->getProvider('deck');
+			break;
+//			case IShare::TYPE_SCIENCEMESH:
+//				$provider = $this->getProvider('sciencemesh');
+//			break;
+			default:
+				// try to autodetect in the registered providers;
+				foreach ($this->registeredShareProviders as $shareProvider) {
+					/** @var IShareProvider $instance */
+					$instance = $this->serverContainer->get($shareProvider);
 
-		if ($shareType === IShare::TYPE_USER ||
-			$shareType === IShare::TYPE_GROUP ||
-			$shareType === IShare::TYPE_LINK
-		) {
-			$provider = $this->defaultShareProvider();
-		} elseif ($shareType === IShare::TYPE_REMOTE || $shareType === IShare::TYPE_REMOTE_GROUP) {
-			$provider = $this->federatedShareProvider();
-		} elseif ($shareType === IShare::TYPE_EMAIL) {
-			$provider = $this->getShareByMailProvider();
-		} elseif ($shareType === IShare::TYPE_CIRCLE) {
-			$provider = $this->getShareByCircleProvider();
-		} elseif ($shareType === IShare::TYPE_ROOM) {
-			$provider = $this->getRoomShareProvider();
-		} elseif ($shareType === IShare::TYPE_DECK) {
-			$provider = $this->getProvider('deck');
+					// not all instances will have the isShareTypeSupported function;
+					if (method_exists($instance, "isShareTypeSupported")) {
+						if ($instance->isShareTypeSupported($shareType)) {
+							$provider = $this->getProvider($instance->identifier());
+							break;
+						}
+					}
+				}
+			break;
 		}
-
 
 		if ($provider === null) {
 			throw new ProviderException('No share provider for share type ' . $shareType);
