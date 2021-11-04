@@ -163,6 +163,7 @@ class ShareesAPIController extends OCSController {
 
 		$shareTypes = [
 			IShare::TYPE_USER,
+			IShare::TYPE_SCIENCEMESH,
 		];
 
 		if ($itemType === null) {
