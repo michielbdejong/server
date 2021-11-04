@@ -50,6 +50,6 @@ class SciencemeshPlugin implements ISearchPlugin {
 		$resultType = new SearchResultType('sciencemesh');
 		$searchResult->addResultSet($resultType, $result['wide'], $result['exact']);
     error_log("returning Marie as a search result");
-		return true;
+		return false;
 	}
 }

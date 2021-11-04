@@ -77,6 +77,7 @@ use OCP\Share\Exceptions\ShareNotFound;
 use OCP\Share\IManager;
 use OCP\Share\IShare;
 use OCP\UserStatus\IManager as IUserStatusManager;
+use OCA\Sciencemesh\Sharing\ShareAPIHelper;
 
 /**
  * Class Share20OCS
@@ -314,6 +315,14 @@ class ShareAPIController extends OCSController {
 
 			try {
 				$result = array_merge($result, $this->getDeckShareHelper()->formatShare($share));
+			} catch (QueryException $e) {
+			}
+		} elseif ($share->getShareType() === IShare::TYPE_SCIENCEMESH) {
+			$result['share_with'] = $share->getSharedWith();
+			$result['share_with_displayname'] = '';
+
+			try {
+				$result = array_merge($result, $this->getSciencemeshShareHelper()->formatShare($share));
 			} catch (QueryException $e) {
 			}
 		}
@@ -644,7 +653,14 @@ class ShareAPIController extends OCSController {
 			try {
 				$this->getDeckShareHelper()->createShare($share, $shareWith, $permissions, $expireDate);
 			} catch (QueryException $e) {
-				throw new OCSForbiddenException($this->l->t('Sharing %s failed because the back end does not support room shares', [$path->getPath()]));
+				throw new OCSForbiddenException($this->l->t('Sharing %s failed because the back end does not support deck shares', [$path->getPath()]));
+			}
+		} elseif ($shareType === IShare::TYPE_SCIENCEMESH) {
+			try {
+				$this->getSciencemeshShareHelper()->createShare($share, $shareWith, $permissions, $expireDate);
+			} catch (QueryException $e) {
+				error_log(json_encode($e));
+				throw new OCSForbiddenException($this->l->t('Sharing %s failed because the back end does not support sciencemesh shares', [$path->getPath()]));
 			}
 		} else {
 			throw new OCSBadRequestException($this->l->t('Unknown share type'));
@@ -681,8 +697,9 @@ class ShareAPIController extends OCSController {
 		$circleShares = $this->shareManager->getSharedWith($this->currentUser, IShare::TYPE_CIRCLE, $node, -1, 0);
 		$roomShares = $this->shareManager->getSharedWith($this->currentUser, IShare::TYPE_ROOM, $node, -1, 0);
 		$deckShares = $this->shareManager->getSharedWith($this->currentUser, IShare::TYPE_DECK, $node, -1, 0);
+		$sciencemeshShares = $this->shareManager->getSharedWith($this->currentUser, IShare::TYPE_SCIENCEMESH, $node, -1, 0);
 
-		$shares = array_merge($userShares, $groupShares, $circleShares, $roomShares, $deckShares);
+		$shares = array_merge($userShares, $groupShares, $circleShares, $roomShares, $deckShares, $sciencemeshShares);
 
 		$filteredShares = array_filter($shares, function (IShare $share) {
 			return $share->getShareOwner() !== $this->currentUser;
@@ -1348,6 +1365,14 @@ class ShareAPIController extends OCSController {
 			}
 		}
 
+		if ($share->getShareType() === IShare::TYPE_SCIENCEMESH) {
+			try {
+				return $this->getSciencemeshShareHelper()->canAccessShare($share, $this->currentUser);
+			} catch (QueryException $e) {
+				return false;
+			}
+		}
+
 		return false;
 	}
 
@@ -1461,6 +1486,14 @@ class ShareAPIController extends OCSController {
 			}
 		}
 
+		if ($share->getShareType() === IShare::TYPE_SCIENCEMESH) {
+			try {
+				return $this->getSciencemeshShareHelper()->canAccessShare($share, $this->currentUser);
+			} catch (QueryException $e) {
+				return false;
+			}
+		}
+
 		return false;
 	}
 
@@ -1539,6 +1572,15 @@ class ShareAPIController extends OCSController {
 		} catch (ShareNotFound $e) {
 			// Do nothing, just try the other share type
 		}
+	
+		try {
+			if ($this->shareManager->shareProviderExists(IShare::TYPE_SCIENCEMESH)) {
+				$share = $this->shareManager->getShareById('sciencemesh:' . $id, $this->currentUser);
+				return $share;
+			}
+		} catch (ShareNotFound $e) {
+			// Do nothing, just try the other share type
+		}
 
 		if (!$this->shareManager->outgoingServer2ServerSharesAllowed()) {
 			throw new ShareNotFound();
@@ -1604,6 +1646,26 @@ class ShareAPIController extends OCSController {
 	}
 
 	/**
+	 * Returns the helper of ShareAPIHelper for sciencemesh shares.
+	 *
+	 * If the Sciencemesh application is not enabled or the helper is not available
+	 * a QueryException is thrown instead.
+	 *
+	 * @return \OCA\Sciencemesh\Sharing\ShareAPIHelper
+	 * @throws QueryException
+	 */
+	private function getSciencemeshShareHelper() {
+		error_log('getSciencemeshShareHelper 1');
+		if (!$this->appManager->isEnabledForUser('sciencemesh')) {
+			error_log('getSciencemeshShareHelper 2');
+			throw new QueryException();
+		}
+		error_log('getSciencemeshShareHelper 3');
+
+		return $this->serverContainer->get('\OCA\Sciencemesh\Sharing\ShareAPIHelper');
+	}
+
+	/**
 	 * @param string $viewer
 	 * @param Node $node
 	 * @param bool $reShares
@@ -1618,7 +1680,8 @@ class ShareAPIController extends OCSController {
 			IShare::TYPE_EMAIL,
 			IShare::TYPE_CIRCLE,
 			IShare::TYPE_ROOM,
-			IShare::TYPE_DECK
+			IShare::TYPE_DECK,
+			IShare::TYPE_SCIENCEMESH,
 		];
 
 		// Should we assume that the (currentUser) viewer is the owner of the node !?
@@ -1773,6 +1836,8 @@ class ShareAPIController extends OCSController {
 
 		$deckShares = $this->shareManager->getSharesBy($this->currentUser, IShare::TYPE_DECK, $path, $reshares, -1, 0);
 
+		$sciencemeshShares = $this->shareManager->getSharesBy($this->currentUser, IShare::TYPE_SCIENCEMESH, $path, $reshares, -1, 0);
+
 		// FEDERATION
 		if ($this->shareManager->outgoingServer2ServerSharesAllowed()) {
 			$federatedShares = $this->shareManager->getSharesBy($this->currentUser, IShare::TYPE_REMOTE, $path, $reshares, -1, 0);
@@ -1785,7 +1850,7 @@ class ShareAPIController extends OCSController {
 			$federatedGroupShares = [];
 		}
 
-		return array_merge($userShares, $groupShares, $linkShares, $mailShares, $circleShares, $roomShares, $deckShares, $federatedShares, $federatedGroupShares);
+		return array_merge($userShares, $groupShares, $linkShares, $mailShares, $circleShares, $roomShares, $deckShares, $sciencemeshShares, $federatedShares, $federatedGroupShares);
 	}
 
 
