@@ -72,6 +72,7 @@ use OC\Collaboration\Collaborators\MailPlugin;
 use OC\Collaboration\Collaborators\RemoteGroupPlugin;
 use OC\Collaboration\Collaborators\RemotePlugin;
 use OC\Collaboration\Collaborators\UserPlugin;
+use OC\Collaboration\Collaborators\SciencemeshPlugin;
 use OC\Command\CronBus;
 use OC\Comments\ManagerFactory as CommentsManagerFactory;
 use OC\Contacts\ContactsMenu\ActionFactory;
@@ -1270,6 +1271,7 @@ class Server extends ServerContainer implements IServerContainer {
 			$instance->registerPlugin(['shareType' => 'SHARE_TYPE_EMAIL', 'class' => MailPlugin::class]);
 			$instance->registerPlugin(['shareType' => 'SHARE_TYPE_REMOTE', 'class' => RemotePlugin::class]);
 			$instance->registerPlugin(['shareType' => 'SHARE_TYPE_REMOTE_GROUP', 'class' => RemoteGroupPlugin::class]);
+			$instance->registerPlugin(['shareType' => 'SHARE_TYPE_SCIENCEMESH', 'class' => SciencemeshPlugin::class]);
 
 			return $instance;
 		});

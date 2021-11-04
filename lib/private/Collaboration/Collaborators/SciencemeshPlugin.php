@@ -32,7 +32,7 @@ use OCP\Collaboration\Collaborators\ISearchResult;
 use OCP\Collaboration\Collaborators\SearchResultType;
 use OCP\Share\IShare;
 
-class RemotePlugin implements ISearchPlugin {
+class SciencemeshPlugin implements ISearchPlugin {
 	public function search($search, $limit, $offset, ISearchResult $searchResult) {
 		$result = ['wide' => [], 'exact' => [
 			[
@@ -49,7 +49,7 @@ class RemotePlugin implements ISearchPlugin {
 		]];
 		$resultType = new SearchResultType('sciencemesh');
 		$searchResult->addResultSet($resultType, $result['wide'], $result['exact']);
-
+    error_log("returning Marie as a search result");
 		return true;
 	}
 }
