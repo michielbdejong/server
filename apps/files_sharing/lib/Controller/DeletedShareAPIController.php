@@ -239,4 +239,24 @@ class DeletedShareAPIController extends OCSController {
 
 		return $this->serverContainer->get('\OCA\Deck\Sharing\ShareAPIHelper');
 	}
+
+	/**
+	 * Returns the helper of ShareAPIHelper for sciencemesh shares.
+	 *
+	 * If the Sciencmesh application is not enabled or the helper is not available
+	 * a QueryException is thrown instead.
+	 *
+	 * @return \OCA\Sciencemesh\Sharing\ShareAPIHelper
+	 * @throws QueryException
+	 */
+	private function getSciencemeshShareHelper() {
+		error_log('deleted getSciencemeshShareHelper 1');
+		if (!$this->appManager->isEnabledForUser('sciencmesh')) {
+			error_log('deleted getSciencemeshShareHelper 2');
+			throw new QueryException();
+		}
+		error_log('deleted getSciencemeshShareHelper 3');
+
+		return $this->serverContainer->get('\OCA\Sciencemesh\Sharing\ShareAPIHelper');
+	}
 }

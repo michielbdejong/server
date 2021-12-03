@@ -116,6 +116,8 @@ interface IShare {
 	 */
 	public const TYPE_DECK_USER = 13;
 
+	public const TYPE_SCIENCEMESH = 14;
+
 	/**
 	 * @since 18.0.0
 	 */

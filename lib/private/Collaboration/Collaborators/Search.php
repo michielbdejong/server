@@ -54,6 +54,7 @@ class Search implements ISearch {
 	 * @throws \OCP\AppFramework\QueryException
 	 */
 	public function search($search, array $shareTypes, $lookup, $limit, $offset) {
+		error_log('searching: ' . $search . ' for ' . implode(",", $shareTypes));
 		$hasMoreResults = false;
 
 		// Trim leading and trailing whitespace characters, e.g. when query is copy-pasted
@@ -67,12 +68,13 @@ class Search implements ISearch {
 				continue;
 			}
 			foreach ($this->pluginList[$type] as $plugin) {
+				error_log('plugin in list: ' . $plugin);
 				/** @var ISearchPlugin $searchPlugin */
 				$searchPlugin = $this->c->resolve($plugin);
 				$hasMoreResults = $searchPlugin->search($search, $limit, $offset, $searchResult) || $hasMoreResults;
 			}
 		}
-
+    error_log(json_encode($searchResult));
 		// Get from lookup server, not a separate share type
 		if ($lookup) {
 			$searchPlugin = $this->c->resolve(LookupPlugin::class);
@@ -111,6 +113,7 @@ class Search implements ISearch {
 			throw new \InvalidArgumentException('Provided ShareType is invalid');
 		}
 		$this->pluginList[$shareType][] = $pluginInfo['class'];
+		error_log('registered '. $pluginInfo['class'] . ' for ' . $shareType);
 	}
 
 	protected function dropMailSharesWhereRemoteShareIsPossible(ISearchResult $searchResult): void {

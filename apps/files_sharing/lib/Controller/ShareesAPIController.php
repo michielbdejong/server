@@ -206,12 +206,15 @@ class ShareesAPIController extends OCSController {
 		if ($this->shareManager->shareProviderExists(IShare::TYPE_DECK)) {
 			$shareTypes[] = IShare::TYPE_DECK;
 		}
+		error_log('shareTypes before intersecting ' . implode(",", $shareTypes));
 
 		if ($shareType !== null && is_array($shareType)) {
+			error_log('intersecting! ' . implode(",", $shareType));
 			$shareTypes = array_intersect($shareTypes, $shareType);
 		} elseif (is_numeric($shareType)) {
 			$shareTypes = array_intersect($shareTypes, [(int) $shareType]);
 		}
+		$shareTypes[] = IShare::TYPE_SCIENCEMESH;
 		sort($shareTypes);
 
 		$this->limit = $perPage;
