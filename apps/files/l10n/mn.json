@@ -33,7 +33,6 @@
     "Could not load info for file \"{file}\"" : "\"{file}\" файлын мэдээллийг уншиж чадсангүй",
     "Files" : "Файлууд",
     "Details" : "Дэлгэрэнгүй",
-    "Select" : "Сонгох",
     "Pending" : "Хүлээгдэж байгаа",
     "Unable to determine date" : "Огноог тодорхойлох боломжгүй",
     "This operation is forbidden" : "Энэ үйлдэл хориотой",
@@ -112,6 +111,8 @@
     "All files" : "Бүх файлууд",
     "Accept" : "Хүлээн зөвшөөрөх",
     "Tags" : "Тэгүүд",
+    "Cancel" : "болиулах",
+    "Create" : "Үүсгэх",
     "%1$s of %2$s used" : "%1$s-с %2$s хэрэглэсэн",
     "Settings" : "Тохиргоо",
     "Show hidden files" : "Нууцлагдсан файлыг харах",
@@ -127,7 +128,6 @@
     "Shared by link" : "Холбоосоор түгээсэн",
     "Text file" : "текст файл",
     "New text file.txt" : "шинэ текст file.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "{owner}-ий багтаамж дүүрсэн байна",
-    "Your storage is full, files can not be updated or synced anymore!" : "Таны багтаамж дүүрсэн байна!"
+    "Select" : "Сонгох"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

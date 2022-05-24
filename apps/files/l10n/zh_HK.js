@@ -41,7 +41,8 @@ OC.L10N.register(
     "Details" : "詳細資料",
     "Please select tag(s) to add to the selection" : "請選擇要添加到所選項目中的標籤",
     "Apply tag(s) to selection" : "將標籤應用於所選項目",
-    "Select" : "選擇",
+    "Select directory \"{dirName}\"" : "選擇目錄「{dirName}」",
+    "Select file \"{fileName}\"" : "選擇檔案「{fileName}」",
     "Pending" : "待定的",
     "Unable to determine date" : "無法確定日期",
     "This operation is forbidden" : "此操作被禁止",
@@ -211,10 +212,6 @@ OC.L10N.register(
     "Pending shares" : "等待分享",
     "Text file" : "文字檔",
     "New text file.txt" : "新文字檔.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "{owner} 的儲存空間已滿，沒有辦法再更新或是同步檔案！",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "群組資料夾 \"{mountPoint}\" 已滿，已無法再更新或同步檔案！",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "外部儲存空間 \"{mountPoint}\" 已滿，已無法再更新或同步檔案！",
-    "Your storage is full, files can not be updated or synced anymore!" : "您的儲存空間已滿，沒有辦法再更新或是同步檔案！",
-    "_matches '{filter}'_::_match '{filter}'_" : ["符合「{filter}」"]
+    "Select" : "選擇"
 },
 "nplurals=1; plural=0;");

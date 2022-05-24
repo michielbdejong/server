@@ -41,7 +41,6 @@ OC.L10N.register(
     "Details" : "Podrobnosti",
     "Please select tag(s) to add to the selection" : "Prosím vyberte štítok(štítky) pre pridanie do výberu",
     "Apply tag(s) to selection" : "Aplikovať štítok(štítky) do výberu",
-    "Select" : "Vybrať",
     "Pending" : "Čaká",
     "Unable to determine date" : "Nemožno určiť dátum",
     "This operation is forbidden" : "Táto operácia je zakázaná",
@@ -211,10 +210,6 @@ OC.L10N.register(
     "Pending shares" : "Čakajúce prístupy",
     "Text file" : "Textový súbor",
     "New text file.txt" : "Nový text file.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "Úložisko používateľa {owner} je plné, súbory sa viac nedajú aktualizovať ani synchronizovať.",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "Priečinok skupiny \"{mountPoint}\" je plný, súbory nemožno aktualizovať ani synchronizovať!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "Externé úložisko \"{mountPoint}\" je plné, súbory nemožno aktualizovať ani synchronizovať!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Vaše úložisko je plné. Súbory nemožno aktualizovať ani synchronizovať!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["zodpovedá '{filter}'","zodpovedá '{filter}'","zodpovedá '{filter}'","zodpovedá '{filter}'"]
+    "Select" : "Vybrať"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

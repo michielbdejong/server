@@ -41,7 +41,6 @@ OC.L10N.register(
     "Details" : "รายละเอียด",
     "Please select tag(s) to add to the selection" : "กรุณาเลือกแท็กเพื่อเพิ่มเข้าไปในรายการที่เลือก",
     "Apply tag(s) to selection" : "นำแท็กไปใช้ในรายการที่เลือก",
-    "Select" : "เลือก",
     "Pending" : "อยู่ระหว่างดำเนินการ",
     "Unable to determine date" : "ไม่สามารถระบุวัน",
     "This operation is forbidden" : "การดำเนินการนี้ถูกห้าม",
@@ -211,10 +210,6 @@ OC.L10N.register(
     "Pending shares" : "การแชร์ที่กำลังดำเนินการ",
     "Text file" : "ไฟล์ข้อความ",
     "New text file.txt" : "ไฟล์ข้อความใหม่.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "พื้นที่จัดเก็บข้อมูลของ {owner} เต็มแล้ว ไม่สามารถอัปเดตหรือซิงค์ไฟล์ได้อีก!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "โฟลเดอร์กลุ่ม \"{mountPoint}\" เต็มแล้ว ไม่สามารถอัปเดตหรือซิงค์ไฟล์ได้อีก!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "พื้นที่จัดเก็บข้อมูลภายนอก \"{mountPoint}\" เต็มแล้ว ไม่สามารถอัปเดตหรือซิงค์ไฟล์ได้อีก!",
-    "Your storage is full, files can not be updated or synced anymore!" : "พื้นที่จัดเก็บข้อมูลของคุณเต็มแล้ว ไม่สามารถอัปเดตหรือซิงค์ไฟล์ได้อีก!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["ตรงกับ '{filter}'"]
+    "Select" : "เลือก"
 },
 "nplurals=1; plural=0;");

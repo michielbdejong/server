@@ -47,7 +47,6 @@ namespace OCP {
 		/**
 		 * @return string defining the unique uri
 		 * @since 16.0.0
-		 * @return string
 		 */
 		public function getUri(): string;
 
@@ -67,6 +66,8 @@ namespace OCP {
 		 * 	- 'escape_like_param' - If set to false wildcards _ and % are not escaped
 		 * 	- 'limit' - Set a numeric limit for the search results
 		 * 	- 'offset' - Set the offset for the limited search results
+		 * 	- 'wildcard' - (since 23.0.0) Whether the search should use wildcards
+		 * @psalm-param array{types?: bool, escape_like_param?: bool, limit?: int, offset?: int, wildcard?: bool} $options
 		 * @return array an array of contacts which are arrays of key-value-pairs
 		 *  example result:
 		 *  [

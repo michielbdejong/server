@@ -41,7 +41,6 @@ OC.L10N.register(
     "Details" : "Dettagli",
     "Please select tag(s) to add to the selection" : "Seleziona un'etichetta(e) da aggiungere alla selezione",
     "Apply tag(s) to selection" : "Applica etichetta(e) alla selezione",
-    "Select" : "Seleziona",
     "Pending" : "In corso",
     "Unable to determine date" : "Impossibile determinare la data",
     "This operation is forbidden" : "Questa operazione è vietata",
@@ -211,10 +210,6 @@ OC.L10N.register(
     "Pending shares" : "Condivisioni in corso",
     "Text file" : "File di testo",
     "New text file.txt" : "Nuovo file di testo.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "Lo spazio di archiviazione di {owner} è pieno, i file non possono essere più aggiornati o sincronizzati!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "La cartella di gruppo \"{mountPoint}\" è piena, i file non possono più essere aggiornati o sincronizzati!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "L'archiviazione esterna \"{mountPoint}\" è piena, i file non possono più essere aggiornati o sincronizzati!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Lo spazio di archiviazione è pieno, i file non possono essere più aggiornati o sincronizzati!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["corrispondono a '{filter}'","corrisponde a '{filter}'"]
+    "Select" : "Seleziona"
 },
 "nplurals=2; plural=(n != 1);");

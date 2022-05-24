@@ -1,7 +1,7 @@
 { "translations": {
     "Recent statuses" : "Последни състояния",
     "In a meeting" : "В среща",
-    "Commuting" : "Пътуване",
+    "Commuting" : "Работно пътуване",
     "Out sick" : "Болничен",
     "Vacationing" : "Отпуск",
     "Working remotely" : "Работа от разстояние",
@@ -33,7 +33,6 @@
     "4 hours" : "4 часа",
     "Mute all notifications" : "Заглушаване на всички известия",
     "Appear offline" : "Показване като офлайн",
-    "Clear status after" : "Изчистване на състоянието след",
     "What's your status?" : "Какъв е вашият статус?"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

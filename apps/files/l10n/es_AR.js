@@ -34,7 +34,6 @@ OC.L10N.register(
     "Could not load info for file \"{file}\"" : "No fue posible cargar información para el archivo \"{file}\"",
     "Files" : "Archivos",
     "Details" : "Detalles",
-    "Select" : "Seleccionar",
     "Pending" : "Pendiente",
     "Unable to determine date" : "No fue posible determinar la fecha",
     "This operation is forbidden" : "Esta operación está prohibida",
@@ -116,6 +115,8 @@ OC.L10N.register(
     "File Management" : "Administración de Archivos",
     "Change" : "Cambiar",
     "Tags" : "Etiquetas",
+    "Cancel" : "Cancelar",
+    "Create" : "Crear",
     "%s used" : "%s usado",
     "%1$s of %2$s used" : "%1$s de %2$s usados",
     "Settings" : "Configuraciones ",
@@ -137,8 +138,6 @@ OC.L10N.register(
     "Shared by link" : "Compartido por link",
     "Text file" : "Archivo de texto",
     "New text file.txt" : "Nuevo ArchivoDeTexto.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "El espacio de {owner} está lleno. ¡Los archivos ya no se pueden actualizar o sincronizar!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Su espacio está lleno. ¡Los archivos ya no se pueden actualizar o sincronizar!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["coincide '{filter}'","coinciden '{filter}'"]
+    "Select" : "Seleccionar"
 },
 "nplurals=2; plural=(n != 1);");

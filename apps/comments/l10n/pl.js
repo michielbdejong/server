@@ -10,8 +10,8 @@ OC.L10N.register(
     "%1$s commented on %2$s" : "%1$s skomentował %2$s",
     "{author} commented on {file}" : "{author} skomentował w {file}‭",
     "<strong>Comments</strong> for files" : "<strong>Komentarze</strong> dla plików",
-    "You were mentioned on “{file}”, in a comment by a user that has since been deleted" : "Wspomniano o Tobie w komentarzu w \"{file}\" przez użytkownika, który został usunięty",
-    "{user} mentioned you in a comment on “{file}”" : "{user} wspomniał o Tobie w komentarzu do “{file}”",
+    "You were mentioned on \"{file}\", in a comment by a user that has since been deleted" : "Wspomniano o Tobie w komentarzu w \"{file}\" przez użytkownika, który został usunięty",
+    "{user} mentioned you in a comment on \"{file}\"" : "{user} wspomniał o Tobie w komentarzu do “{file}”",
     "Files app plugin to add comments to files" : "Plugin umożliwiający dodawanie komentarzy w aplikacji Pliki",
     "Edit comment" : "Edytuj komentarz",
     "Delete comment" : "Usuń komentarz",
@@ -28,15 +28,7 @@ OC.L10N.register(
     "Comment deleted" : "Komentarz usunięty",
     "An error occurred while trying to delete the comment" : "Wystąpił błąd podczas próby usunięcia komentarza",
     "An error occurred while trying to create the comment" : "Wystąpił błąd podczas próby utworzenia komentarza",
-    "New comment …" : "Nowy komentarz…",
-    "Post" : "Publikuj",
-    "Cancel" : "Anuluj",
-    "[Deleted user]" : "[Usunięty użytkownik]",
-    "More comments …" : "Więcej komentarzy…",
-    "Save" : "Zapisz",
-    "Allowed characters {count} of {max}" : "Dozwolone znaki {count} z {max}",
-    "Error occurred while retrieving comment with ID {id}" : "Wystąpił błąd podczas pobierania komentarza o ID {id}",
-    "Error occurred while updating comment with id {id}" : "Wystąpił błąd podczas aktualizowania komentarza o ID {id}",
-    "Error occurred while posting comment" : "Wystąpił błąd podczas publikowania komentarza"
+    "You were mentioned on “{file}”, in a comment by a user that has since been deleted" : "Wspomniano o Tobie w komentarzu w \"{file}\" przez użytkownika, który został usunięty",
+    "{user} mentioned you in a comment on “{file}”" : "{user} wspomniał o Tobie w komentarzu do “{file}”"
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

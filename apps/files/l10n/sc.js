@@ -41,7 +41,6 @@ OC.L10N.register(
     "Details" : "Detàllios",
     "Please select tag(s) to add to the selection" : "Seletziona eticheta(s) pro agiùnghere a sa seletzione",
     "Apply tag(s) to selection" : "Àplica eticheta(s) a sa seletzione",
-    "Select" : "Seletziona",
     "Pending" : "In suspesu",
     "Unable to determine date" : "Non faghet a determinare sa data",
     "This operation is forbidden" : "Custa operatzione no est permìtida",
@@ -211,10 +210,6 @@ OC.L10N.register(
     "Pending shares" : "Cumpartziduras in suspesu",
     "Text file" : "Archìviu de testu",
     "New text file.txt" : "Archìviu de testu .txt nou",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "S'archiviatzione de {owner} est prena, non podes prus carrigare o sincronizare archìvios!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "Sa cartella de grupu \"{mountPoint}\" est prena, non podes prus carrigare o sincronizare archìvios!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "S'archiviatzione de foras \"{mountPoint}\" est prena, non podes prus carrigare o sincronizare archìvios!",
-    "Your storage is full, files can not be updated or synced anymore!" : "S'archiviatzione est prena, non podes prus carrigare o sincronizare archìvios!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["currispondèntzias '{filter}'","currispondèntzia '{filter}'"]
+    "Select" : "Seletziona"
 },
 "nplurals=2; plural=(n != 1);");

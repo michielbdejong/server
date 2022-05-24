@@ -119,6 +119,7 @@ OC.L10N.register(
     "Completed on %s" : "Voltooid op %s",
     "Due on %s by %s" : "Verwacht op %s door %s",
     "Due on %s" : "Verwacht op %s",
+    "Contacts and groups" : "Contactpersonen en groepen",
     "WebDAV" : "WebDAV",
     "WebDAV endpoint" : "WebDAV eindpunt",
     "Availability" : "Beschikbaarheid",
@@ -128,7 +129,6 @@ OC.L10N.register(
     "Delete slot" : "Verwijder slot",
     "No working hours set" : "Geen werkuren ingesteld",
     "Add slot" : "Voeg slot toe",
-    "Save" : "Opslaan",
     "Monday" : "maandag",
     "Tuesday" : "dinsdag",
     "Wednesday" : "woensdag",
@@ -136,6 +136,7 @@ OC.L10N.register(
     "Friday" : "vrijdag",
     "Saturday" : "zaterdag",
     "Sunday" : "zondag",
+    "Save" : "Opslaan",
     "Calendar server" : "Agendaserver",
     "Send invitations to attendees" : "Verzend uitnodigingen naar deelnemers",
     "Automatically generate a birthday calendar" : "Genereer verjaardagskalender automatisch",
@@ -152,7 +153,6 @@ OC.L10N.register(
     "Tentative" : "Onder voorbehoud",
     "Number of guests" : "Aantal gasten",
     "Comment" : "Notitie",
-    "Your attendance was updated successfully." : "Je deelname is succesvol bijgewerkt.",
-    "Calendar and tasks" : "Agenda en taken"
+    "Your attendance was updated successfully." : "Je deelname is succesvol bijgewerkt."
 },
 "nplurals=2; plural=(n != 1);");

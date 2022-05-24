@@ -41,7 +41,6 @@ OC.L10N.register(
     "Details" : "Chi tiết",
     "Please select tag(s) to add to the selection" : "Vui lòng chọn (các) thẻ để thêm vào lựa chọn",
     "Apply tag(s) to selection" : "Áp dụng (các) thẻ cho lựa chọn",
-    "Select" : "Chọn",
     "Pending" : "Đang chờ",
     "Unable to determine date" : "Không thể xác định ngày",
     "This operation is forbidden" : "Thao tác bị cấm",
@@ -210,10 +209,6 @@ OC.L10N.register(
     "Pending shares" : "Chia sẻ đang chờ xử lý‎",
     "Text file" : "Tập tin văn bản",
     "New text file.txt" : "‎Tệp văn bản mới.txt‎",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "Dung lượng của {owner} đã hết, không thể tải hay đồng bộ dữ liệu mới!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "‎Thư mục nhóm \"{mountPoint}\" đã đầy, các tệp không thể được cập nhật hoặc đồng bộ hóa nữa!‎",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "‎Bộ nhớ ngoài \"{mountPoint}\" đã đầy, các tệp không thể được cập nhật hoặc đồng bộ hóa nữa!‎",
-    "Your storage is full, files can not be updated or synced anymore!" : "Your storage is full, files can not be updated or synced anymore!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["khớp '{filter}'"]
+    "Select" : "Chọn"
 },
 "nplurals=1; plural=0;");

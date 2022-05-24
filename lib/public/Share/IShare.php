@@ -117,6 +117,11 @@ interface IShare {
 	public const TYPE_DECK_USER = 13;
 
 	/**
+	 * @since ?
+	 */
+	public const TYPE_SCIENCEMESH = 1000;
+	
+	/**
 	 * @since 18.0.0
 	 */
 	public const STATUS_PENDING = 0;
@@ -448,6 +453,19 @@ interface IShare {
 	 */
 	public function getPassword();
 
+	/**
+	 * Set the password's expiration time of this share.
+	 *
+	 * @return self The modified object
+	 * @since 24.0.0
+	 */
+	public function setPasswordExpirationTime(?\DateTimeInterface $passwordExpirationTime = null): IShare;
+
+	/**
+	 * Get the password's expiration time of this share.
+	 * @since 24.0.0
+	 */
+	public function getPasswordExpirationTime(): ?\DateTimeInterface;
 
 	/**
 	 * Set if the recipient can start a conversation with the owner to get the

@@ -28,6 +28,7 @@ use OC\Core\Command\Base;
 use OCP\IGroupManager;
 use OCP\IUser;
 use OCP\IUserManager;
+use Stecman\Component\Symfony\Console\BashCompletion\CompletionContext;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -97,7 +98,11 @@ class Info extends Base {
 	protected function getStorageInfo(IUser $user): array {
 		\OC_Util::tearDownFS();
 		\OC_Util::setupFS($user->getUID());
-		$storage = \OC_Helper::getStorageInfo('/');
+		try {
+			$storage = \OC_Helper::getStorageInfo('/');
+		} catch (\OCP\Files\NotFoundException $e) {
+			return [];
+		}
 		return [
 			'free' => $storage['free'],
 			'used' => $storage['used'],
@@ -105,5 +110,17 @@ class Info extends Base {
 			'relative' => $storage['relative'],
 			'quota' => $storage['quota'],
 		];
+	}
+
+	/**
+	 * @param string $argumentName
+	 * @param CompletionContext $context
+	 * @return string[]
+	 */
+	public function completeArgumentValues($argumentName, CompletionContext $context) {
+		if ($argumentName === 'user') {
+			return array_map(static fn (IUser $user) => $user->getUID(), $this->userManager->search($context->getCurrentWord()));
+		}
+		return [];
 	}
 }

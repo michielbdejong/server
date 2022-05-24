@@ -41,7 +41,8 @@ OC.L10N.register(
     "Details" : "Podrobnosti",
     "Please select tag(s) to add to the selection" : "Vyberte štítky které přidat do výběru",
     "Apply tag(s) to selection" : "Uplatnit štítky na výběr",
-    "Select" : "Vybrat",
+    "Select directory \"{dirName}\"" : "Vybrat složku „{dirName}“",
+    "Select file \"{fileName}\"" : "Vybrat soubor „{fileName}“",
     "Pending" : "Nevyřízené",
     "Unable to determine date" : "Nelze určit datum",
     "This operation is forbidden" : "Tato operace je zakázána",
@@ -166,7 +167,7 @@ OC.L10N.register(
     "New owner" : "Nový vlastník",
     "Search users" : "Hledat uživatele",
     "Choose a file or folder to transfer" : "Zvolte soubor nebo složku k převedení",
-    "Transfer" : "Převedení",
+    "Transfer" : "Převést",
     "Transfer {path} to {userid}" : "Převést {path} na {userid}",
     "Invalid path selected" : "Vybrán neplatný popis umístění",
     "Ownership transfer request sent" : "Žádost o převedení vlastnictví zaslána",
@@ -211,10 +212,6 @@ OC.L10N.register(
     "Pending shares" : "Čekající sdílení",
     "Text file" : "Textový soubor",
     "New text file.txt" : "Nový textový soubor.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "Úložiště uživatele {owner} je plné – soubory už proto nelze aktualizovat ani synchronizovat!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "Skupinová složka „{mountPoint}“ je plná, soubory už nadále není možné aktualizovat nebo synchronizovat!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "Externí úložiště „{mountPoint}“ je plné, soubory už nadále není možné aktualizovat nebo synchronizovat!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Vaše úložiště je plné – soubory už proto nelze aktualizovat ani synchronizovat!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["odpovídá „{filter}“","odpovídají „{filter}“","odpovídá „{filter}“","odpovídají „{filter}“"]
+    "Select" : "Vybrat"
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");

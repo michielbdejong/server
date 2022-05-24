@@ -39,7 +39,6 @@
     "Details" : "Detalhes",
     "Please select tag(s) to add to the selection" : "Selecione a(s) etiquetas(s) para adicionar à seleção ",
     "Apply tag(s) to selection" : "Aplicar as etiqueta(s) a seleção",
-    "Select" : "Selecionar",
     "Pending" : "Pendente",
     "Unable to determine date" : "Impossível determinar a data",
     "This operation is forbidden" : "Esta operação é proibida",
@@ -209,10 +208,6 @@
     "Pending shares" : "Compartilhamentos pendentes",
     "Text file" : "Arquivo texto",
     "New text file.txt" : "Novo arquivo.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "O armazenamento do {owner} está cheio e os arquivos não podem ser mais atualizados ou sincronizados!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "A pasta do grupo \"{mountPoint}\" está cheia, os arquivos não podem ser atualizados ou sincronizados mais!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "O armazenamento externo \"{mountPoint}\" está cheio, os arquivos não podem ser atualizados ou sincronizados mais!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Seu armazenamento está cheio e arquivos não podem mais ser atualizados ou sincronizados!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["coincide com '{filter}'","coincide com '{filter}'"]
+    "Select" : "Selecionar"
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

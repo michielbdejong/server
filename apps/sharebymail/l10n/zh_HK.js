@@ -27,6 +27,7 @@ OC.L10N.register(
     "Share by mail" : "通過郵件分享",
     "Sharing %1$s failed, because this item is already shared with user %2$s" : "分享 %1$s 失敗，此項目已經與用戶 %2$s 分享",
     "We cannot send you the auto-generated password. Please set a valid email address in your personal settings and try again." : "我們無法將自動生成的密碼發送與您。請在您的個人設置中提供有效的電郵地址後重試。",
+    "Failed to send share by email. Got an invalid email address" : "透過電子郵件傳送分享失敗。收到無效的電郵地址",
     "Failed to send share by email" : "通過電郵發送分享失敗",
     "%1$s shared »%2$s« with you" : "%1$s 與您分享了 »%2$s«",
     "%1$s shared »%2$s« with you." : "%1$s 與您分享了 »%2$s«。",
@@ -49,8 +50,6 @@ OC.L10N.register(
     "Share provider which allows you to share files by mail" : "分享提供程序，可讓您通過郵件分享檔案",
     "Allows users to share a personalized link to a file or folder by putting in an email address." : "使用戶可以通過輸入電郵地址來分享指向檔案或資料夾的個性化連結。",
     "Send password by mail" : "通過電郵發送密碼",
-    "Reply to initiator" : "回覆發起人",
-    "We can't send you the auto-generated password. Please set a valid email address in your personal settings and try again." : "我們無法將自動生成的密碼發送與您。請在您的個人設置中提供有效的電郵地址後重試。",
-    "Enforce password protection" : "強制密碼保護"
+    "Reply to initiator" : "回覆發起人"
 },
 "nplurals=1; plural=0;");

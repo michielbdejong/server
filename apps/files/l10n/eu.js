@@ -41,7 +41,8 @@ OC.L10N.register(
     "Details" : "Xehetasunak",
     "Please select tag(s) to add to the selection" : "Hautatu etiketa(k) hautapenera gehitzeko",
     "Apply tag(s) to selection" : "Aplikatu etiketa(k) hautapenari",
-    "Select" : "Hautatu",
+    "Select directory \"{dirName}\"" : "Hautatu \"{dirName}\" direktorioa",
+    "Select file \"{fileName}\"" : "Hautatu \"{fileName}\" fitxategia",
     "Pending" : "Zain",
     "Unable to determine date" : "Ezin izan da data zehaztu",
     "This operation is forbidden" : "Eragiketa hau debekatuta dago",
@@ -211,10 +212,6 @@ OC.L10N.register(
     "Pending shares" : "Zain dauden partekatzeak",
     "Text file" : "Testu-fitxategia",
     "New text file.txt" : "Testu-fitxategi berria.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "{owner} erabiltzailearen biltegia beteta dago, fitxategiak ezin dira eguneratu edo sinkronizatu jada!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "\"{mountPoint}\" talde karpeta beteta dago, ezin da fitxategirik eguneratu edo sinkronizatu gehiago!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "\"{mountPoint}\" kanpoko biltegia beteta dago, ezin da fitxategirik eguneratu edo sinkronizatu gehiago!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Zure biltegia beteta dago, ezin duzu fitxategirik igo edo sinkronizatu jada!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["bat dator '{filter}' iragazkiarekin","bat datoz '{filter}' iragazkiarekin"]
+    "Select" : "Hautatu"
 },
 "nplurals=2; plural=(n != 1);");

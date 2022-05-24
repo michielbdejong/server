@@ -46,7 +46,7 @@ OC.L10N.register(
     "You reopened todo {todo} in list {calendar}" : "As torradu a abèrrere sa cosa de fàghere {todo} in s'elecu {calendar}",
     "Calendar, contacts and tasks" : "Calendàriu, cuntatos e fainas",
     "A <strong>calendar</strong> was modified" : "Unu <strong>calendàriu</strong> est istadu modificadu",
-    "A calendar <strong>event</strong> was modified" : "Unu <strong>eventu</strong> de su calendàriu est istadu modificadu",
+    "A calendar <strong>event</strong> was modified" : "Un'<strong>eventu</strong> de su calendàriu est istadu modificadu",
     "A calendar <strong>todo</strong> was modified" : "Una <strong>cosa de fàghere</strong> de su calendàriu est istada modificada",
     "Contact birthdays" : "Data de nàschida de is cuntatos",
     "Death of %s" : "Morte de %s",
@@ -121,6 +121,14 @@ OC.L10N.register(
     "Due on %s" : "iscadet su %s",
     "WebDAV" : "WebDAV",
     "WebDAV endpoint" : "puntu finale WebDAV ",
+    "to" : "a",
+    "Monday" : "Lunis",
+    "Tuesday" : "Martis",
+    "Wednesday" : "Mércuris",
+    "Thursday" : "Giòbia",
+    "Friday" : "Chenàbura",
+    "Saturday" : "Sàbudu",
+    "Sunday" : "Domìnigu",
     "Save" : "Sarva",
     "Calendar server" : "Serbidore calendàriu",
     "Send invitations to attendees" : "Imbia invitos de partetzipatziones",
@@ -136,7 +144,7 @@ OC.L10N.register(
     "Please contact the organizer directly." : "Pro praghere, cuntata deretu a s'organizadore.",
     "Are you accepting the invitation?" : "Cheres atzetare s'invitu?",
     "Tentative" : "Intentu",
-    "Your attendance was updated successfully." : "Sa partetzipatzione tua est istada agiornada in manera curreta.",
-    "Calendar and tasks" : "Calendàrios e fainas"
+    "Comment" : "Cummentu",
+    "Your attendance was updated successfully." : "Sa partetzipatzione tua est istada agiornada in manera curreta."
 },
 "nplurals=2; plural=(n != 1);");

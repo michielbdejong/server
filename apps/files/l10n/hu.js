@@ -41,7 +41,8 @@ OC.L10N.register(
     "Details" : "Részletek",
     "Please select tag(s) to add to the selection" : "Válassza ki a kijelöléshez adandó címkéket",
     "Apply tag(s) to selection" : "Címkék alkalmazása a kijelölésre",
-    "Select" : "Kiválasztás",
+    "Select directory \"{dirName}\"" : "A(z) „{dirName}” könyvtár kiválasztása",
+    "Select file \"{fileName}\"" : "A(z) „{fileName}” fájl kiválasztása",
     "Pending" : "Függőben",
     "Unable to determine date" : "Nem lehet meghatározni a dátumot",
     "This operation is forbidden" : "Ez a művelet tiltott",
@@ -211,10 +212,6 @@ OC.L10N.register(
     "Pending shares" : "Függőben lévő megosztások",
     "Text file" : "Szövegfájl",
     "New text file.txt" : "Új szövegfájl.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "{owner} tárhelye betelt, a fájlok többé nem frissíthetők vagy szinkronizálhatók!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "A(z) „{mountPoint}” csoportmappa megtelt, a fájlok többé nem frissíthetők vagy szinkronizálhatók!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "A(z) „{mountPoint}” külső tárhely megtelt, a fájlok többé nem frissíthetők vagy szinkronizálhatók!",
-    "Your storage is full, files can not be updated or synced anymore!" : "A tároló megtelt, a fájlok többé nem frissíthetők vagy szinkronizálhatók!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["megfelel ennek: „{filter}”","megfelel ennek: „{filter}”"]
+    "Select" : "Kiválasztás"
 },
 "nplurals=2; plural=(n != 1);");

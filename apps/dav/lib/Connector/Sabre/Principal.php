@@ -270,6 +270,8 @@ class Principal implements BackendInterface {
 		$limitEnumerationGroup = $this->shareManager->limitEnumerationToGroups();
 		$limitEnumerationPhone = $this->shareManager->limitEnumerationToPhone();
 		$allowEnumerationFullMatch = $this->shareManager->allowEnumerationFullMatch();
+		$ignoreSecondDisplayName = $this->shareManager->ignoreSecondDisplayName();
+		$matchEmail = $this->shareManager->matchEmail();
 
 		// If sharing is restricted to group members only,
 		// return only members that have groups in common
@@ -298,7 +300,7 @@ class Principal implements BackendInterface {
 			switch ($prop) {
 				case '{http://sabredav.org/ns}email-address':
 					if (!$allowEnumeration) {
-						if ($allowEnumerationFullMatch) {
+						if ($allowEnumerationFullMatch && $matchEmail) {
 							$users = $this->userManager->getByEmail($value);
 						} else {
 							$users = [];
@@ -347,9 +349,11 @@ class Principal implements BackendInterface {
 
 					if (!$allowEnumeration) {
 						if ($allowEnumerationFullMatch) {
+							$lowerSearch = strtolower($value);
 							$users = $this->userManager->searchDisplayName($value, $searchLimit);
-							$users = \array_filter($users, static function (IUser $user) use ($value) {
-								return $user->getDisplayName() === $value;
+							$users = \array_filter($users, static function (IUser $user) use ($lowerSearch, $ignoreSecondDisplayName) {
+								$lowerDisplayName = strtolower($user->getDisplayName());
+								return $lowerDisplayName === $lowerSearch || ($ignoreSecondDisplayName && trim(preg_replace('/ \(.*\)$/', '', $lowerDisplayName)) === $lowerSearch);
 							});
 						} else {
 							$users = [];

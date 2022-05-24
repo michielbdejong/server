@@ -31,7 +31,6 @@
     "Could not load info for file \"{file}\"" : "د \"{file}\" فایل معلومات نشي پرانيستل کېدای",
     "Files" : "فایلونه",
     "Details" : "معلومات",
-    "Select" : "ټاکل",
     "Pending" : "د انتظار په حال کې",
     "Unable to determine date" : "نېټه نه معلومېږي",
     "This operation is forbidden" : "دا کړنه نشي کېدای",
@@ -112,6 +111,7 @@
     "Upload (max. %s)" : "پورته کول (%s نهايي)",
     "File Management" : "فایلونه ترتیبول",
     "Tags" : "نښکې",
+    "Cancel" : "پرېښول",
     "%s used" : "%sکارول شوې",
     "%1$s of %2$s used" : "د %2$sبرخې %1$sکارول شوې",
     "Settings" : "سمونې",
@@ -132,6 +132,6 @@
     "Deleted shares" : "ړنګ شوي لېنکونه",
     "Text file" : "متن فایل",
     "New text file.txt" : "New text file.txt",
-    "_matches '{filter}'_::_match '{filter}'_" : ["'{filter}' په څېر","'{filter}' په څېر"]
+    "Select" : "ټاکل"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

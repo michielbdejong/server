@@ -41,7 +41,6 @@ OC.L10N.register(
     "Details" : "詳細",
     "Please select tag(s) to add to the selection" : "選択項目に付与するタグを選択してください",
     "Apply tag(s) to selection" : "選択項目にタグを適用",
-    "Select" : "選択",
     "Pending" : "保留中",
     "Unable to determine date" : "更新日不明",
     "This operation is forbidden" : "この操作は禁止されています",
@@ -191,7 +190,7 @@ OC.L10N.register(
     "Show hidden files" : "隠しファイルを表示",
     "Crop image previews" : "プレビュー画像を切り抜く",
     "WebDAV" : "WebDAV",
-    "Use this address to access your Files via WebDAV" : "このアドレスを使用して、WebDAV経由でファイルにアクセスします",
+    "Use this address to access your Files via WebDAV" : "このアドレスを使用すれば、WebDAV経由でファイルにアクセスできます",
     "Toggle %1$s sublist" : "サブリスト %1$s を切り替え",
     "Toggle grid view" : "グリッド表示の切り替え",
     "No files in here" : "ファイルがありません",
@@ -211,10 +210,6 @@ OC.L10N.register(
     "Pending shares" : "保留中の共有",
     "Text file" : "テキストファイル",
     "New text file.txt" : "新規のテキストファイル作成",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "{owner} のストレージは一杯です。ファイルの更新と同期はできません！",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "グループフォルダー ”{mountPoint}\" がいっぱいになり、ファイルを更新または同期できなくなりました。",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "外部ストレージ \"{mountPoint}\" がいっぱいになり、ファイルを更新または同期できなくなりました。",
-    "Your storage is full, files can not be updated or synced anymore!" : "ストレージは一杯です。ファイルの更新と同期はできません！",
-    "_matches '{filter}'_::_match '{filter}'_" : [" '{filter}' にマッチ"]
+    "Select" : "選択"
 },
 "nplurals=1; plural=0;");

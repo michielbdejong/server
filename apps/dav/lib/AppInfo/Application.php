@@ -39,6 +39,7 @@ use OCA\DAV\CalDAV\BirthdayService;
 use OCA\DAV\CalDAV\CalDavBackend;
 use OCA\DAV\CalDAV\CalendarManager;
 use OCA\DAV\CalDAV\CalendarProvider;
+use OCA\DAV\CalDAV\Reminder\Backend as ReminderBackend;
 use OCA\DAV\CalDAV\Reminder\NotificationProvider\AudioProvider;
 use OCA\DAV\CalDAV\Reminder\NotificationProvider\EmailProvider;
 use OCA\DAV\CalDAV\Reminder\NotificationProvider\PushProvider;
@@ -79,6 +80,8 @@ use OCA\DAV\Listener\CardListener;
 use OCA\DAV\Search\ContactsSearchProvider;
 use OCA\DAV\Search\EventsSearchProvider;
 use OCA\DAV\Search\TasksSearchProvider;
+use OCA\DAV\UserMigration\CalendarMigrator;
+use OCA\DAV\UserMigration\ContactsMigrator;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
@@ -86,10 +89,10 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\IAppContainer;
 use OCP\Calendar\IManager as ICalendarManager;
 use OCP\Contacts\IManager as IContactsManager;
-use OCP\ILogger;
 use OCP\IServerContainer;
 use OCP\IUser;
 use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Throwable;
@@ -110,7 +113,7 @@ class Application extends App implements IBootstrap {
 
 			return new PhotoCache(
 				$server->getAppDataDir('dav-photocache'),
-				$c->get(ILogger::class)
+				$c->get(LoggerInterface::class)
 			);
 		});
 
@@ -164,6 +167,9 @@ class Application extends App implements IBootstrap {
 		$context->registerNotifierService(Notifier::class);
 
 		$context->registerCalendarProvider(CalendarProvider::class);
+
+		$context->registerUserMigrator(CalendarMigrator::class);
+		$context->registerUserMigrator(ContactsMigrator::class);
 	}
 
 	public function boot(IBootContext $context): void {
@@ -304,8 +310,11 @@ class Application extends App implements IBootstrap {
 				]);
 
 				/** @var CalDavBackend $calDavBackend */
-				$calDavBackend = $container->query(CalDavBackend::class);
+				$calDavBackend = $container->get(CalDavBackend::class);
 				$calDavBackend->purgeAllCachedEventsForSubscription($subscriptionData['id']);
+				/** @var ReminderBackend $calDavBackend */
+				$reminderBackend = $container->get(ReminderBackend::class);
+				$reminderBackend->cleanRemindersForCalendar((int) $subscriptionData['id']);
 			}
 		);
 
@@ -316,7 +325,7 @@ class Application extends App implements IBootstrap {
 				$job->run([]);
 				$serverContainer->getJobList()->setLastRun($job);
 			} catch (Exception $ex) {
-				$serverContainer->getLogger()->logException($ex);
+				$serverContainer->get(LoggerInterface::class)->error($ex->getMessage(), ['exception' => $ex]);
 			}
 		};
 
@@ -370,13 +379,13 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function registerCalendarReminders(NotificationProviderManager $manager,
-											   ILogger $logger): void {
+											   LoggerInterface $logger): void {
 		try {
 			$manager->registerProvider(AudioProvider::class);
 			$manager->registerProvider(EmailProvider::class);
 			$manager->registerProvider(PushProvider::class);
 		} catch (Throwable $ex) {
-			$logger->logException($ex);
+			$logger->error($ex->getMessage(), ['exception' => $ex]);
 		}
 	}
 }

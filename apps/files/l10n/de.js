@@ -20,7 +20,7 @@ OC.L10N.register(
     "Not enough free space, you are uploading {size1} but only {size2} is left" : "Nicht genügend freier Speicherplatz, Du möchtest{size1} hochladen, es sind jedoch nur noch {size2} verfügbar.",
     "Target folder \"{dir}\" does not exist any more" : "Ziel-Verzeichnis \"{dir}\" existiert nicht mehr",
     "Not enough free space" : "Nicht genügend freier Speicherplatz",
-    "An unknown error has occurred" : "Unbekannter Fehler aufgetreten",
+    "An unknown error has occurred" : "Es ist ein unbekannter Fehler aufgetreten",
     "Uploading …" : "Lade hoch…",
     "{loadedSize} of {totalSize} ({bitrate})" : "{loadedSize} von {totalSize} ({bitrate})",
     "Uploading that item is not supported" : "Hochladen von Daten dieser Art wird nicht unterstützt.",
@@ -41,7 +41,8 @@ OC.L10N.register(
     "Details" : "Details",
     "Please select tag(s) to add to the selection" : "Bitte wähle das/die Schlagwort(e) aus, das/die Du zur Auswahl hinzufügen möchtest",
     "Apply tag(s) to selection" : "Schlagwort(e) auf die Auswahl anwenden",
-    "Select" : "Auswählen",
+    "Select directory \"{dirName}\"" : "Verzeichnis \"{dirName}\" auswählen",
+    "Select file \"{fileName}\"" : "Datei \"{fileName}\" auswählen",
     "Pending" : "Ausstehend",
     "Unable to determine date" : "Datum konnte nicht ermittelt werden",
     "This operation is forbidden" : "Diese Operation ist nicht erlaubt",
@@ -211,10 +212,6 @@ OC.L10N.register(
     "Pending shares" : "Ausstehende Freigaben",
     "Text file" : "Textdatei",
     "New text file.txt" : "Neue Textdatei file.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "Der Speicher von {owner} ist voll, Dateien können nicht mehr aktualisiert oder synchronisiert werden!",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "Gruppenordner \"{mountPoint}\" ist voll, Dateien können nicht mehr aktualisiert oder synchronisiert werden!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "Externer Speicher \"{mountPoint}\" ist voll, Dateien können nicht mehr aktualisiert oder synchronisiert werden!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Dein Speicher ist voll, daher können keine Dateien mehr aktualisiert oder synchronisiert werden!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["stimmt mit '{filter}' überein","stimmen mit '{filter}' überein"]
+    "Select" : "Auswählen"
 },
 "nplurals=2; plural=(n != 1);");

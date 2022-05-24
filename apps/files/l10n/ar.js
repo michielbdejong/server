@@ -41,7 +41,6 @@ OC.L10N.register(
     "Details" : "التفاصيل",
     "Please select tag(s) to add to the selection" : "يرجى تحديد علامة (علامات) لإضافتها إلى التحديد",
     "Apply tag(s) to selection" : "تطبيق العلامة (العلامات) على التحديد",
-    "Select" : "إختر",
     "Pending" : "قيد الانتظار",
     "Unable to determine date" : "تعذر تحديد التاريخ",
     "This operation is forbidden" : "هذة العملية ممنوعة ",
@@ -211,10 +210,6 @@ OC.L10N.register(
     "Pending shares" : "انتظار المشاركات",
     "Text file" : "ملف نصي",
     "New text file.txt" : "ملف نصي جديد fille.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "مساحة تخزين {owner} ممتلئة، لا يمكن تحديث الملفات او مزامنتها بعد الان !",
-    "Group folder \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "مجلد مجموعة \"{mountPoint}\" ممتلئ, لا يمكن تحديث او مزامنة الملفات بعد الآن!",
-    "External storage \"{mountPoint}\" is full, files can not be updated or synced anymore!" : "التخزين الخارجي \"{mountPoint}\" ممتلئ, لا يمكن تحديث او مزامنة الملفات بعد الآن!",
-    "Your storage is full, files can not be updated or synced anymore!" : "مساحتك التخزينية ممتلئة, لا يمكن تحديث ملفاتك أو مزامنتها بعد الآن !",
-    "_matches '{filter}'_::_match '{filter}'_" : ["تطابق \"{filter}\"","تطابق \"{filter}\"","تطابق \"{filter}\"","تطابق \"{filter}\"","تطابق \"{filter}\"","تطابق \"{filter}\""]
+    "Select" : "إختر"
 },
 "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;");

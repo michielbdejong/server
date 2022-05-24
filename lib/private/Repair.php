@@ -47,6 +47,7 @@ use OC\Repair\Collation;
 use OC\Repair\MoveUpdaterStepFile;
 use OC\Repair\NC22\LookupServerSendCheck;
 use OC\Repair\Owncloud\CleanPreviews;
+use OC\Repair\Owncloud\MigrateOauthTables;
 use OC\Repair\NC11\FixMountStorages;
 use OC\Repair\Owncloud\MoveAvatars;
 use OC\Repair\Owncloud\InstallCoreBundle;
@@ -71,7 +72,6 @@ use OC\Repair\RepairInvalidShares;
 use OC\Repair\RepairMimeTypes;
 use OC\Repair\SqliteAutoincrement;
 use OC\Template\JSCombiner;
-use OC\Template\SCSSCacher;
 use OCP\AppFramework\QueryException;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\Collaboration\Resources\IManager;
@@ -93,13 +93,12 @@ class Repair implements IOutput {
 	/** @var string */
 	private $currentStep;
 
-	private $logger;
+	private LoggerInterface $logger;
 
 	/**
 	 * Creates a new repair step runner
 	 *
 	 * @param IRepairStep[] $repairSteps array of RepairStep instances
-	 * @param EventDispatcherInterface $dispatcher
 	 */
 	public function __construct(array $repairSteps, EventDispatcherInterface $dispatcher, LoggerInterface $logger) {
 		$this->repairSteps = $repairSteps;
@@ -171,7 +170,7 @@ class Repair implements IOutput {
 	 */
 	public static function getRepairSteps() {
 		return [
-			new Collation(\OC::$server->getConfig(), \OC::$server->getLogger(), \OC::$server->getDatabaseConnection(), false),
+			new Collation(\OC::$server->getConfig(), \OC::$server->get(LoggerInterface::class), \OC::$server->getDatabaseConnection(), false),
 			new RepairMimeTypes(\OC::$server->getConfig(), \OC::$server->getDatabaseConnection()),
 			new CleanTags(\OC::$server->getDatabaseConnection(), \OC::$server->getUserManager()),
 			new RepairInvalidShares(\OC::$server->getConfig(), \OC::$server->getDatabaseConnection()),
@@ -185,6 +184,7 @@ class Repair implements IOutput {
 				\OC::$server->getUserManager(),
 				\OC::$server->getConfig()
 			),
+			new MigrateOauthTables(\OC::$server->get(Connection::class)),
 			new FixMountStorages(\OC::$server->getDatabaseConnection()),
 			new UpdateLanguageCodes(\OC::$server->getDatabaseConnection(), \OC::$server->getConfig()),
 			new InstallCoreBundle(
@@ -193,11 +193,11 @@ class Repair implements IOutput {
 				\OC::$server->query(Installer::class)
 			),
 			new AddLogRotateJob(\OC::$server->getJobList()),
-			new ClearFrontendCaches(\OC::$server->getMemCacheFactory(), \OC::$server->query(SCSSCacher::class), \OC::$server->query(JSCombiner::class)),
+			new ClearFrontendCaches(\OC::$server->getMemCacheFactory(), \OC::$server->query(JSCombiner::class)),
 			new ClearGeneratedAvatarCache(\OC::$server->getConfig(), \OC::$server->query(AvatarManager::class)),
 			new AddPreviewBackgroundCleanupJob(\OC::$server->getJobList()),
 			new AddCleanupUpdaterBackupsJob(\OC::$server->getJobList()),
-			new CleanupCardDAVPhotoCache(\OC::$server->getConfig(), \OC::$server->getAppDataDir('dav-photocache'), \OC::$server->getLogger()),
+			new CleanupCardDAVPhotoCache(\OC::$server->getConfig(), \OC::$server->getAppDataDir('dav-photocache'), \OC::$server->get(LoggerInterface::class)),
 			new AddClenupLoginFlowV2BackgroundJob(\OC::$server->getJobList()),
 			new RemoveLinkShares(\OC::$server->getDatabaseConnection(), \OC::$server->getConfig(), \OC::$server->getGroupManager(), \OC::$server->getNotificationManager(), \OC::$server->query(ITimeFactory::class)),
 			new ClearCollectionsAccessCache(\OC::$server->getConfig(), \OC::$server->query(IManager::class)),
@@ -238,7 +238,7 @@ class Repair implements IOutput {
 		$connectionAdapter = \OC::$server->get(ConnectionAdapter::class);
 		$config = \OC::$server->getConfig();
 		$steps = [
-			new Collation(\OC::$server->getConfig(), \OC::$server->getLogger(), $connectionAdapter, true),
+			new Collation(\OC::$server->getConfig(), \OC::$server->get(LoggerInterface::class), $connectionAdapter, true),
 			new SqliteAutoincrement($connection),
 			new SaveAccountsTableData($connectionAdapter, $config),
 			new DropAccountTermsTable($connectionAdapter),

@@ -26,7 +26,7 @@
  * @author Thomas Tanghus <thomas@tanghus.net>
  * @author Vincent Petry <vincent@nextcloud.com>
  *
- * @license GNU AGPL version 3 or any later version
+ * @license AGPL-3.0-or-later
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -243,6 +243,7 @@ const Dialogs = {
 	 * @param {string} [type] Type of file picker : Choose, copy, move, copy and move
 	 * @param {string} [path] path to the folder that the the file can be picket from
 	 * @param {Object} [options] additonal options that need to be set
+	 * @param {Function} [options.filter] filter function for advanced filtering
 	 */
 	filepicker: function(title, callback, multiselect, mimetypeFilter, modal, type, path, options) {
 		var self = this
@@ -296,6 +297,9 @@ const Dialogs = {
 				sizeCol: t('core', 'Size'),
 				modifiedCol: t('core', 'Modified')
 			}).data('path', path).data('multiselect', multiselect).data('mimetype', mimetypeFilter).data('allowDirectoryChooser', options.allowDirectoryChooser)
+			if (typeof(options.filter) === 'function') {
+				self.$filePicker.data('filter', options.filter)
+			}
 
 			if (modal === undefined) {
 				modal = false
@@ -308,6 +312,9 @@ const Dialogs = {
 			self.$filePicker.find('#picker-filestable').removeClass('view-grid')
 
 			$('body').append(self.$filePicker)
+
+			self.$showGridView = $('input#picker-showgridview')
+			self.$showGridView.on('change', _.bind(self._onGridviewChange, self))
 
 			self._getGridSettings()
 
@@ -327,6 +334,7 @@ const Dialogs = {
 			})
 
 			OC.registerMenu(newButton, self.$filePicker.find('.menu'), function() {
+				$input.tooltip('hide')
 				$input.focus()
 				self.$filePicker.ocdialog('setEnterCallback', function() {
 					event.stopImmediatePropagation()
@@ -348,7 +356,6 @@ const Dialogs = {
 				event.preventDefault()
 				$form.submit()
 			})
-
 
 			/**
 			 * Checks whether the given file name is valid.
@@ -426,6 +433,9 @@ const Dialogs = {
 					event.preventDefault()
 					$form.submit()
 				}
+			})
+			$input.on('input', function(event) {
+				$input.tooltip('hide')
 			})
 
 			self.$filePicker.ready(function() {
@@ -1118,6 +1128,7 @@ const Dialogs = {
 		this.$filelistContainer.addClass('icon-loading')
 		this.$filePicker.data('path', dir)
 		var filter = this.$filePicker.data('mimetype')
+		var advancedFilter = this.$filePicker.data('filter')
 		if (typeof (filter) === 'string') {
 			filter = [filter]
 		}
@@ -1133,6 +1144,20 @@ const Dialogs = {
 			if (filter && filter.length > 0 && filter.indexOf('*') === -1) {
 				files = files.filter(function(file) {
 					return file.type === 'dir' || filter.indexOf(file.mimetype) !== -1
+				})
+			}
+
+			if (advancedFilter) {
+				files = files.filter(advancedFilter)
+			}
+
+			// Check if the showHidden input field exist and if it exist follow it
+			// Otherwise just show the hidden files
+			const showHiddenInput = document.getElementById('showHiddenFiles')
+			const showHidden = showHiddenInput === null || showHiddenInput.value === "1"
+			if (!showHidden) {
+				files = files.filter(function(file) {
+					return !file.name.startsWith('.')
 				})
 			}
 

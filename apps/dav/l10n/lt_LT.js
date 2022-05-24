@@ -94,8 +94,12 @@ OC.L10N.register(
     "Events" : "Įvykiai",
     "Tasks" : "Užduotys",
     "Untitled task" : "Užduotis be pavadinimo",
+    "Contacts and groups" : "Adresatai ir grupės",
     "WebDAV" : "WebDAV",
-    "Save" : "Įrašyti",
+    "Availability" : "Pasiekiamumas",
+    "Time zone:" : "Laiko juosta:",
+    "to" : "iki",
+    "No working hours set" : "Nenustatyta jokių darbo valandų",
     "Monday" : "Pirmadienis",
     "Tuesday" : "Antradienis",
     "Wednesday" : "Trečiadienis",
@@ -103,6 +107,7 @@ OC.L10N.register(
     "Friday" : "Penktadienis",
     "Saturday" : "Šeštadienis",
     "Sunday" : "Sekmadienis",
+    "Save" : "Įrašyti",
     "Calendar server" : "Kalendoriaus serveris",
     "Send invitations to attendees" : "Siųsti pakvietimus kviestiniams",
     "Automatically generate a birthday calendar" : "Automatiškai sukurti gimtadienių kalendorių",
@@ -116,6 +121,6 @@ OC.L10N.register(
     "Are you accepting the invitation?" : "Ar priimate pakvietimą?",
     "Tentative" : "Preliminarus",
     "Number of guests" : "Svečių skaičius",
-    "Calendar and tasks" : "Kalendorius ir užduotys"
+    "Comment" : "Komentaras"
 },
 "nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);");

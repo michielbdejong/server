@@ -34,10 +34,10 @@ OC.L10N.register(
     "Delete file" : "Eyða skrá",
     "Delete folder" : "Eyða möppu",
     "Disconnect storage" : "Aftengja geymslu",
+    "Leave this share" : "Leave this share",
     "Could not load info for file \"{file}\"" : "Gat ekki lesið upplýsingar um skrána \"{file}\"",
     "Files" : "Skrár",
     "Details" : "Nánar",
-    "Select" : "Velja",
     "Pending" : "Í bið",
     "Unable to determine date" : "Tókst ekki að ákvarða dagsetningu",
     "This operation is forbidden" : "Þessi aðgerð er bönnuð",
@@ -145,6 +145,8 @@ OC.L10N.register(
     "Cannot transfer ownership of a file or folder you don't own" : "Ekki er hægt að millifæra eignarhald á skrá eða möppu sem þú átt ekki",
     "Tags" : "Merki",
     "Error while loading the file data" : "Villa við að hlaða inn skráagögnum",
+    "Cancel" : "Hætta við",
+    "Create" : "Búa til",
     "%s used" : "%s notað",
     "%s%% of %s used" : "%s%% af %s notað",
     "%1$s of %2$s used" : "%1$s af %2$s notað",
@@ -170,8 +172,6 @@ OC.L10N.register(
     "Pending shares" : "Sameignir í bið",
     "Text file" : "Textaskrá",
     "New text file.txt" : "Ný textaskrá.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "Geymslupláss {owner} er fullt, ekki er lengur hægt að uppfæra eða samstilla skrár!",
-    "Your storage is full, files can not be updated or synced anymore!" : "Geymsluplássið þitt er fullt, ekki er lengur hægt að uppfæra eða samstilla skrár!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["samsvarar '{filter}'","samsvara '{filter}'"]
+    "Select" : "Velja"
 },
 "nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);");

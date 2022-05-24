@@ -30,6 +30,7 @@
 namespace OCA\Files_Sharing\AppInfo;
 
 use OC\Share\Share;
+use OC\User\DisplayNameCache;
 use OCA\Files_Sharing\Capabilities;
 use OCA\Files_Sharing\Event\BeforeTemplateRenderedEvent;
 use OCA\Files_Sharing\External\Manager;
@@ -65,6 +66,7 @@ use OCP\IUserSession;
 use OCP\L10N\IFactory;
 use OCP\Share\Events\ShareCreatedEvent;
 use OCP\Share\IManager;
+use OCP\User\Events\UserChangedEvent;
 use OCP\Util;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -98,6 +100,7 @@ class Application extends App implements IBootstrap {
 		$context->registerCapability(Capabilities::class);
 
 		$context->registerNotifierService(Notifier::class);
+		$context->registerEventListener(UserChangedEvent::class, DisplayNameCache::class);
 	}
 
 	public function boot(IBootContext $context): void {
@@ -113,7 +116,7 @@ class Application extends App implements IBootstrap {
 		/**
 		 * Always add main sharing script
 		 */
-		Util::addScript(self::APP_ID, 'dist/main');
+		Util::addScript(self::APP_ID, 'main');
 	}
 
 
@@ -129,7 +132,7 @@ class Application extends App implements IBootstrap {
 		$dispatcher->addServiceListener(LoadSidebar::class, LoadSidebarListener::class);
 		$dispatcher->addServiceListener(ShareCreatedEvent::class, ShareInteractionListener::class);
 		$dispatcher->addListener('\OCP\Collaboration\Resources::loadAdditionalScripts', function () {
-			\OCP\Util::addScript('files_sharing', 'dist/collaboration');
+			\OCP\Util::addScript('files_sharing', 'collaboration');
 		});
 		$dispatcher->addServiceListener(ShareCreatedEvent::class, UserShareAcceptanceListener::class);
 		$dispatcher->addServiceListener(UserAddedEvent::class, UserAddedToGroupListener::class);

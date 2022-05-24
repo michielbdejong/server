@@ -108,6 +108,9 @@ OC.L10N.register(
     "{actor} updated contact {card} in address book {addressbook}" : "{actor}-(e)k eguneratu du {card} kontaktua {addressbook} helbide-liburuan",
     "You updated contact {card} in address book {addressbook}" : "Eguneratu duzu {card} kontaktua {addressbook} helbide-liburuan",
     "A <strong>contact</strong> or <strong>address book</strong> was modified" : "<strong>kontaktu</strong> edo <strong>helbide-liburu</strong>bat aldatu da",
+    "Could not write file contents" : "Ezin izan dira fitxategiaren edukiak idatzi",
+    "_%n byte_::_%n bytes_" : ["Byte %n","%n byte"],
+    "Could not open file" : "Ezin izan da fitxategia ireki",
     "System is in maintenance mode." : "Sistema mantentze moduan dago.",
     "Upgrade needed" : "Bertsio-berritzea beharrezkoa",
     "Your %s needs to be configured to use HTTPS in order to use CalDAV and CardDAV with iOS/macOS." : "Zure %s HTTPS erabiltzeko konfiguratu behar da CalDAV eta CardDAV erabiltzeko iOS eta macOSrekin.",
@@ -119,6 +122,7 @@ OC.L10N.register(
     "Completed on %s" : "%s-an osatua",
     "Due on %s by %s" : "%s-(e)tik %s-(e)an epemuga",
     "Due on %s" : "%s-(e)an epemuga",
+    "Contacts and groups" : "Kontaktuak eta taldeak",
     "WebDAV" : "WebDAV",
     "WebDAV endpoint" : "WebDAV amaiera-puntua",
     "Availability" : "Eskuragarritasuna",
@@ -128,7 +132,6 @@ OC.L10N.register(
     "Delete slot" : "Ezabatu tartea",
     "No working hours set" : "Ez dira laneko orduak ezarri",
     "Add slot" : "Gehitu tartea",
-    "Save" : "Gorde",
     "Monday" : "Astelehena",
     "Tuesday" : "Asteartea",
     "Wednesday" : "Asteazkena",
@@ -136,6 +139,7 @@ OC.L10N.register(
     "Friday" : "Ostirala",
     "Saturday" : "Larunbata",
     "Sunday" : "Igandea",
+    "Save" : "Gorde",
     "Calendar server" : "Egutegi-zerbitzaria",
     "Send invitations to attendees" : "Gonbidatutakoei gonbidapenak bidali",
     "Automatically generate a birthday calendar" : "Automatikoki sortu urtebetetzeen egutegia",
@@ -152,7 +156,6 @@ OC.L10N.register(
     "Tentative" : "Behin behinekoa",
     "Number of guests" : "Gonbidatu kopurua",
     "Comment" : "Iruzkindu",
-    "Your attendance was updated successfully." : "Zure parte-hartzea ondo eguneratu da.",
-    "Calendar and tasks" : "Egutegia eta atazak"
+    "Your attendance was updated successfully." : "Zure parte-hartzea ondo eguneratu da."
 },
 "nplurals=2; plural=(n != 1);");

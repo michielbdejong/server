@@ -119,6 +119,7 @@ OC.L10N.register(
     "Completed on %s" : "Slutförd %s",
     "Due on %s by %s" : "Slutar den %s vid %s",
     "Due on %s" : "Slutar den %s",
+    "Contacts and groups" : "Kontakter och grupper",
     "WebDAV" : "WebDAV",
     "WebDAV endpoint" : "WebDAV endpoint",
     "Availability" : "Tillgänglighet",
@@ -126,7 +127,6 @@ OC.L10N.register(
     "Time zone:" : "Tidszon:",
     "to" : "till",
     "No working hours set" : "Inga arbetstimmar satta",
-    "Save" : "Spara",
     "Monday" : "Måndag",
     "Tuesday" : "Tisdag",
     "Wednesday" : "Onsdag",
@@ -134,6 +134,7 @@ OC.L10N.register(
     "Friday" : "Fredag",
     "Saturday" : "Lördag",
     "Sunday" : "Söndag",
+    "Save" : "Spara",
     "Calendar server" : "Kalenderserver",
     "Send invitations to attendees" : "Skicka inbjudan till deltagare",
     "Automatically generate a birthday calendar" : "Generera en födelsedagskalender automatiskt",
@@ -150,7 +151,6 @@ OC.L10N.register(
     "Tentative" : "Preliminärt",
     "Number of guests" : "Antal gäster",
     "Comment" : "Kommentar",
-    "Your attendance was updated successfully." : "Dina närvaro uppdaterades.",
-    "Calendar and tasks" : "Kalender och uppgifter"
+    "Your attendance was updated successfully." : "Dina närvaro uppdaterades."
 },
 "nplurals=2; plural=(n != 1);");

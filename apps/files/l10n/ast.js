@@ -27,7 +27,6 @@ OC.L10N.register(
     "Could not load info for file \"{file}\"" : "Nun pudo cargase la información del ficheru «{file}»",
     "Files" : "Ficheros",
     "Details" : "Detalles",
-    "Select" : "Esbillar",
     "Pending" : "Pendiente",
     "Unable to determine date" : "Imposible determinar la fecha",
     "This operation is forbidden" : "La operación ta prohibida",
@@ -88,6 +87,8 @@ OC.L10N.register(
     "in %s" : "en %s",
     "Change" : "Camudar",
     "Tags" : "Etiquetes",
+    "Cancel" : "Encaboxar",
+    "Create" : "Crear",
     "%1$s of %2$s used" : "%1$s de %2$s usao",
     "Settings" : "Axustes",
     "Show hidden files" : "Amosar ficheros ocultos",
@@ -107,8 +108,6 @@ OC.L10N.register(
     "Shared by link" : "Compartíos per enllaz",
     "Text file" : "Ficheru de testu",
     "New text file.txt" : "Nuevu testu ficheru.txt",
-    "Storage of {owner} is full, files can not be updated or synced anymore!" : "L'almacenamientu de {owner} ta completu, ¡yá nun se pueden anovar o sincronizar ficheros!",
-    "Your storage is full, files can not be updated or synced anymore!" : "L'almacenamientu ta completu, ¡yá nun se pueden anovar o sincronizar ficheros!",
-    "_matches '{filter}'_::_match '{filter}'_" : ["concasa '{filter}'","concasa '{filter}'"]
+    "Select" : "Esbillar"
 },
 "nplurals=2; plural=(n != 1);");

@@ -6,7 +6,7 @@
  * @author Joas Schilling <coding@schilljs.com>
  * @author John Molakvoæ <skjnldsv@protonmail.com>
  *
- * @license GNU AGPL version 3 or any later version
+ * @license AGPL-3.0-or-later
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -46,7 +46,7 @@ $.widget('oc.ocdialog', {
 		this.originalTitle = this.element.attr('title')
 		this.options.title = this.options.title || this.originalTitle
 
-		this.$dialog = $('<div class="oc-dialog" />')
+		this.$dialog = $('<div class="oc-dialog"></div>')
 			.attr({
 				// Setting tabIndex makes the div focusable
 				tabIndex: -1,
@@ -133,7 +133,7 @@ $.widget('oc.ocdialog', {
 			if (this.$buttonrow) {
 				this.$buttonrow.empty()
 			} else {
-				const $buttonrow = $('<div class="oc-dialog-buttonrow" />')
+				const $buttonrow = $('<div class="oc-dialog-buttonrow"></div>')
 				this.$buttonrow = $buttonrow.appendTo(this.$dialog)
 			}
 			if (value.length === 1) {
