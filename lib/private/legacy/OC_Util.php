@@ -1033,9 +1033,9 @@ class OC_Util {
 	 * @return void
 	 */
 	public static function obEnd() {
-		while (ob_get_level()) {
-			ob_end_clean();
-		}
+		// while (ob_get_level()) {
+		// 	ob_end_clean();
+		// }
 	}
 
 	/**
